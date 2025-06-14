@@ -1,0 +1,40 @@
+{
+    "id": "dem-phase1",
+    "type": "Collection",
+    "links": [],
+    "title": "Digital Elevation Model Phase 1",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -89.704434,
+                    36.456976,
+                    -81.884235,
+                    39.151921
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2010-03-18T00:00:00Z",
+                    "2017-04-02T12:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC-BY-4.0",
+    "providers": [
+        {
+            "url": "https://registry.opendata.aws/kyfromabove/",
+            "name": "KyFromAbove Phase1 DEM Collection",
+            "roles": [
+                "producer",
+                "processor",
+                "host"
+            ]
+        }
+    ],
+    "description": "This collection contains Phase 1 data of the Kentucky From Above Digital Elevation Model project.",
+    "stac_version": "1.0.0"
+}
