@@ -22,6 +22,7 @@ services:
       - DB_MAX_CONN_SIZE=1
       - USE_API_HYDRATE=${USE_API_HYDRATE:-false}
       - ENABLE_TRANSACTIONS_EXTENSIONS=TRUE  
+      - STAC_BASE_URL=${STAC_BASE_URL}
     ports:
       - "8082:8082"
     working_dir: /app
