@@ -1,0 +1,55 @@
+name: stac-fastapi-dev
+
+services:
+  app:
+    image: ghcr.io/stac-utils/stac-fastapi-pgstac:main
+    container_name: stac-fastapi-pgstac
+    environment:
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8082
+      - RELOAD=true
+      - ENVIRONMENT=local
+      - PGUSER=${PGUSER}
+      - PGPASS=${PGPASS}
+      - PGDATABASE=${PGDATABASE}
+      - PGHOST=${PGHOST}
+      - PGPORT=5432
+      - WEB_CONCURRENCY=10
+      - VSI_CACHE=TRUE
+      - GDAL_HTTP_MERGE_CONSECUTIVE_RANGES=YES
+      - GDAL_DISABLE_READDIR_ON_OPEN=EMPTY_DIR
+      - DB_MIN_CONN_SIZE=1
+      - DB_MAX_CONN_SIZE=1
+      - USE_API_HYDRATE=${USE_API_HYDRATE:-false}
+      - ENABLE_TRANSACTIONS_EXTENSIONS=TRUE  
+    ports:
+      - "8082:8082"
+    working_dir: /app
+    volumes:
+      - .:/app  # ✅ corrected bind mount
+    depends_on:
+      - database
+    command: bash -c "./scripts/wait-for-it.sh database:5432 && uvicorn stac_fastapi.pgstac.app:app --host 0.0.0.0 --port 8082 --proxy-headers --forwarded-allow-ips=*"
+    
+  database:
+    image: ghcr.io/stac-utils/pgstac:v0.9.6
+    container_name: stac-db
+    environment:
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGDATABASE=${PGDATABASE}
+    ports:
+      - "5432:5432"
+    command: postgres -N 500
+    volumes:
+      - stac-db-data:/var/lib/postgresql/data
+
+networks:
+  default:
+    name: stac-fastapi-network
+
+volumes:
+  stac-db-data:
