@@ -48,12 +48,12 @@ services:
       - stac-db-data:/var/lib/postgresql/data
 
   nginx:
-    image: nginx:stable
-    container_name: nginx_reverse_proxy
+    image: nginx:alpine
+    container_name: nginx
     ports:
       - "80:80"
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - app
 
