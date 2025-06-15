@@ -1,0 +1,40 @@
+{
+    "id": "orthos-phase3",
+    "type": "Collection",
+    "links": [],
+    "title": "KyFromAbove Phase Three 3\" Orthoimagery",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -89.89993694,
+                    35.92606273,
+                    -81.68872801,
+                    39.66024604
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2019-02-25T08:00:00Z",
+                    "2022-03-20T12:00:00Z"
+                ]
+            ]
+        }
+    },
+    "license": "CC-BY-4.0",
+    "providers": [
+        {
+            "url": "https://registry.opendata.aws/kyfromabove/",
+            "name": "KyFromAbove",
+            "roles": [
+                "producer",
+                "processor",
+                "host"
+            ]
+        }
+    ],
+    "description": "This collection contains Phase Three 4-band 3\" orthoimagery.",
+    "stac_version": "1.0.0"
+}
