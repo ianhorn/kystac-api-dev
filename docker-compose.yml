@@ -50,6 +50,18 @@ services:
     volumes:
       - stac-db-data:/var/lib/postgresql/data
 
+  stac-browser:
+    image: ghcr.io/radiantearth/stac-browser:3.3.4
+    container_name: stac-browser
+    environment:
+      - SB_catalogURL=http://localhost
+      - SB_pathPrefix=/browser/
+      - SB_catalogTitle=KyFromAbove STAC Browser
+    ports: 
+      - "8080:8080"
+    depends_on:
+     - app
+
   nginx:
     image: nginx:alpine
     container_name: nginx
@@ -63,6 +75,6 @@ services:
 networks:
   default:
     name: stac-fastapi-network
-
+    
 volumes:
   stac-db-data:
