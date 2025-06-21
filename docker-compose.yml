@@ -51,7 +51,7 @@ services:
       - stac-db-data:/var/lib/postgresql/data
 
   stac-browser:
-    image: ghcr.io/radiantearth/stac-browser:3.3.4
+    image: ianhorn/stac-browser:0.0.1
     container_name: stac-browser
     environment:
       - SB_catalogURL=http://localhost/
