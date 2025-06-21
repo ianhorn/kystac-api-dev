@@ -50,20 +50,6 @@ services:
     volumes:
       - stac-db-data:/var/lib/postgresql/data
 
-  stac-browser:
-    image: ianhorn/stac-browser:0.0.1
-    container_name: stac-browser
-    environment:
-      - SB_catalogURL=http://localhost/
-      - SB_pathPrefix=/browser/
-      - SB_catalogTitle=KyFromAbove STAC Browser
-    ports: 
-      - "8080:8080"
-    volumes:
-      - ./stac-browser-config/config.js:/usr/share/nginx/html/config-overrides.js:ro
-    depends_on:
-     - app
-
   nginx:
     image: nginx:alpine
     container_name: nginx
