@@ -50,7 +50,7 @@ services:
       - "5432:5432"
     command: postgres -N 500
     volumes:
-      - stac-db:/var/lib/postgresql/data
+      - stac-db-data:/var/lib/postgresql/data
 
   nginx:
     image: nginx:alpine
@@ -66,3 +66,6 @@ services:
 networks:
   default:
     name: stac-fastapi-network
+
+volumes:
+  stac-db-data:
