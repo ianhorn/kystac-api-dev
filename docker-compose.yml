@@ -1,9 +1,8 @@
-name: stac-fastapi-dev
-
 services:
   app:
-    image: ghcr.io/stac-utils/stac-fastapi-pgstac:main
+    image: 405369522825.dkr.ecr.us-west-2.amazonaws.com/stac-fastapi-pgstac:v1
     container_name: stac-fastapi-pgstac
+    restart: always
     environment:
       - APP_HOST=0.0.0.0
       - APP_PORT=8082
@@ -21,7 +20,7 @@ services:
       - DB_MIN_CONN_SIZE=1
       - DB_MAX_CONN_SIZE=1
       - USE_API_HYDRATE=${USE_API_HYDRATE:-false}
-      - ENABLE_TRANSACTIONS_EXTENSIONS=TRUE  
+      - ENABLE_TRANSACTIONS_EXTENSIONS=TRUE
       - STAC_FASTAPI_TITLE=${STAC_FASTAPI_TITLE}
       - STAC_FASTAPI_DESCRIPTION=${STAC_FASTAPI_DESCRIPTION}
       - STAC_FASTAPI_LANDING_PAGE_ID=${STAC_FASTAPI_LANDING_PAGE_ID}
@@ -30,14 +29,16 @@ services:
       - "8082:8082"
     working_dir: /app
     volumes:
-      - .:/app  # ✅ corrected bind mount
+      - .:/app
     depends_on:
       - database
-    command: bash -c "./scripts/wait-for-it.sh database:5432 && uvicorn stac_fastapi.pgstac.app:app --host 0.0.0.0 --port 8082 --proxy-headers --forwarded-allow-ips=*"
-    
+    command: bash -c "./scripts/wait-for-it.sh database:5432 && uvicorn stac_fastapi.pgstac.app:app --host 0.0.0.0 --port 8082 --root-path /stac"
+
   database:
     image: ghcr.io/stac-utils/pgstac:v0.9.6
+    platform: linux/arm64
     container_name: stac-db
+    restart: always
     environment:
       - POSTGRES_USER=${PGUSER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -49,11 +50,12 @@ services:
       - "5432:5432"
     command: postgres -N 500
     volumes:
-      - stac-db-data:/var/lib/postgresql/data
+      - stac-db:/var/lib/postgresql/data
 
   nginx:
     image: nginx:alpine
     container_name: nginx
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -64,6 +66,3 @@ services:
 networks:
   default:
     name: stac-fastapi-network
-    
-volumes:
-  stac-db-data:
