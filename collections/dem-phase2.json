@@ -1,40 +1,43 @@
 {
-    "id": "dem-phase2",
-    "type": "Collection",
-    "links": [],
-    "title": "Kentucky From Above Digital Elevation Model Phase 2",
-    "extent": {
-        "spatial": {
-            "bbox": [
-                [
-                    -89.704434,
-                    36.456976,
-                    -81.884235,
-                    39.151921
-                ]
-            ]
-        },
-        "temporal": {
-            "interval": [
-                [
-                    "2019-02-19T00:00:00Z",
-                    "2023-03-05T12:00:00Z"
-                ]
-            ]
-        }
+  "id": "dem-phase2",
+  "type": "Collection",
+  "links": [],
+  "assets": {
+    "thumbnail": {
+      "href": "https://kyfromabove-stac-us-west-2.s3.us-west-2.amazonaws.com/collections/thumbnails/dem-phase2.png",
+      "type": "image/png",
+      "roles": ["thumbnail"]
+    }
+  },
+  "title": "Digital Elevation Model Phase 2",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -89.704434,
+          36.456976,
+          -81.884235,
+          39.151921
+        ]
+      ]
     },
-    "license": "CC-BY-4.0",
-    "providers": [
-        {
-            "url": "https://registry.opendata.aws/kyfromabove/",
-            "name": "KyFromAbove Phase2 DEM Collection",
-            "roles": [
-                "producer",
-                "processor",
-                "host"
-            ]
-        }
-    ],
-    "description": "This collection contains Phase 2 data of the Kentucky From Above Digital Elevation Model project.",
-    "stac_version": "1.0.0"
+    "temporal": {
+      "interval": [
+        [
+          "2019-02-19T00:00:00Z",
+          "2023-03-05T12:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-4.0",
+  "providers": [
+    {
+      "url": "https://registry.opendata.aws/kyfromabove/",
+      "name": "KyFromAbove Phase2 DEM Collection",
+      "roles": ["producer", "processor", "host"]
+    }
+  ],
+  "description": "Phase2 (2019 - 2023) Statewide LiDAR-derived Digital Elevation Model.",
+  "stac_version": "1.1.0"
 }

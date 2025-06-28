@@ -2,6 +2,13 @@
     "id": "orthos-phase3",
     "type": "Collection",
     "links": [],
+      "assets": {
+    "thumbnail": {
+      "href": "https://kyfromabove-stac-us-west-2.s3.us-west-2.amazonaws.com/collections/thumbnails/orthos-phase3.png",
+      "type": "image/png",
+      "roles": ["thumbnail"]
+    }
+  },
     "title": "KyFromAbove Phase Three 3\" Orthoimagery",
     "extent": {
         "spatial": {
@@ -36,5 +43,5 @@
         }
     ],
     "description": "This collection contains Phase Three 4-band 3\" orthoimagery.",
-    "stac_version": "1.0.0"
+    "stac_version": "1.1.0"
 }

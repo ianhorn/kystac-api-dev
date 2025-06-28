@@ -2,7 +2,14 @@
     "id": "dem-phase3",
     "type": "Collection",
     "links": [],
-    "title": "Kentucky From Above Digital Elevation Model Phase 3",
+  "assets": {
+    "thumbnail": {
+      "href": "https://kyfromabove-stac-us-west-2.s3.us-west-2.amazonaws.com/collections/thumbnails/dem-phase3.png",
+      "type": "image/png",
+      "roles": ["thumbnail"]
+    }
+  },
+    "title": "Elevation Model Phase 3",
     "extent": {
         "spatial": {
             "bbox": [
@@ -18,7 +25,7 @@
             "interval": [
                 [
                     "2022-12-12T00:00:00Z",
-                    "2023-03-05T12:00:00Z"
+                    null
                 ]
             ]
         }
@@ -35,6 +42,6 @@
             ]
         }
     ],
-    "description": "This collection contains Phase 3 data of the Kentucky From Above Digital Elevation Model project.",
-    "stac_version": "1.0.0"
+    "description": "Phase3 (2023 - Present) Statewide LiDAR-derived Digital Elevation Model..",
+    "stac_version": "1.1.0"
 }

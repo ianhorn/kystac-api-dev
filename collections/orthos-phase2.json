@@ -2,6 +2,15 @@
     "id": "orthos-phase2",
     "type": "Collection",
     "links": [],
+    "assets": {
+        "thumbnail": {
+            "href": "https://kyfromabove-stac-us-west-2.s3.us-west-2.amazonaws.com/collections/thumbnails/orthos-phase2.png",
+            "type": "image/png",
+            "roles": [
+                "thumbnail"
+            ]
+        }
+    },
     "title": "KyFromAbove Phase Two 3\" and 6\" Orthoimagery",
     "extent": {
         "spatial": {
@@ -36,5 +45,5 @@
         }
     ],
     "description": "This collections contains Kentucky From Above Phase Two 4-band 3\" and 6\" orthoimagery.",
-    "stac_version": "1.0.0"
+    "stac_version": "1.1.0"
 }
