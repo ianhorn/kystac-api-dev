@@ -6,7 +6,9 @@
     "thumbnail": {
       "href": "https://kyfromabove-stac-us-west-2.s3.us-west-2.amazonaws.com/collections/thumbnails/dem-phase1.png",
       "type": "image/png",
-      "roles": ["thumbnail"]
+      "roles": [
+        "thumbnail"
+      ]
     }
   },
   "title": "Digital Elevation Model Phase 1",
@@ -42,6 +44,6 @@
       ]
     }
   ],
-  "description": "Phase1 (2010 - 2017) Statewide LiDAR-derived Digital Elevation Model.",
+  "description": "Phase1 (2010 - 2017) Statewide LiDAR-derived Digital Elevation Model.\n\nThis dataset provides access to a LiDAR-derived 5 Foot Digital Elevation Model (DEM) for the entire Commonwealth of Kentucky. LiDAR was collected at Quality Level 3 or better from 2010 – 2017 for KYAPED project areas while no snow was on the ground and rivers were at or below normal levels.",
   "stac_version": "1.1.0"
 }

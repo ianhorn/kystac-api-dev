@@ -38,6 +38,6 @@
       "roles": ["producer", "processor", "host"]
     }
   ],
-  "description": "Phase2 (2019 - 2023) Statewide LiDAR-derived Digital Elevation Model.",
+  "description": "Phase2 (2019 - 2023) Statewide LiDAR-derived Digital Elevation Model.\n\nThis is the KyFromAbove Phase2 collection and provides access to a 2 Foot Digital Elevation Model (DEM) for Kentucky. Data will be added to this dataset as it becomes available through the KyFromAbove Program. LiDAR was collected at Quality Level 2 or better from 2019 - 2023 for KYAPED project areas while no snow was on the ground and rivers were at or below normal levels.",
   "stac_version": "1.1.0"
 }
